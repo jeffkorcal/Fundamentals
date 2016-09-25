@@ -1,0 +1,33 @@
+<!-- 
+// Build a tag library that creates elements of the following types in the least LOC: a, div, span, form, h1, h2, h3, h4
+// Hint: 
+// Code is 'built' one statement at a time
+// document.createElement('h1') creates and returns an 'h1' element 
+-->
+<html>
+	<head></head>
+	<body>
+		<script type='text/javascript'>
+			// make functionality goes here
+			const make = {};
+			const tags = ['a', 'div', 'span', 'form', 'h1', 'h2', 'h3', 'h4'];
+
+			for (let i = 0; i < tags.length; i++) {
+				make[tags[i]] = () => {
+					return document.createElement(tags[i]);
+				}
+			}
+
+			let h1 = make.h1();
+			h1.innerHTML = "Hello World"
+
+			document.body.appendChild(h1);
+
+			let a = make.a()
+			a.href= "http://canjs.com"
+			a.innerHTML = "CanJS"
+			document.body.appendChild(a);
+			
+		</script>
+	</body>
+</html>
