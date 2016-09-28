@@ -29,16 +29,15 @@
  */
 
 
-// alphabet array [a - z]
+const letterGrid = (str) => {
 
-var letterGrid = function(str) {
+    const grid = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    const alphabet = {};
+    let x = 0, y = 0;
+    let start = 'a';
+    let result = '';
 
-    var grid = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    var alphabet = {};
-    var x = 0, y = 0;
-    var start = 'a', next = '';
-
-    for (var i = 0; i < grid.length; i++) {
+    for (let i = 0; i < grid.length; i++) {
       if (i % 5 === 0) {
         x = 0;
         y++;
@@ -54,21 +53,44 @@ var letterGrid = function(str) {
       alphabet[grid[i]] = { x, y }
     }
 
-    for (var i = 0; i < str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
+      let upDown = alphabet[start].y - alphabet[str[i]].y;
+      let leftRight = alphabet[start].x - alphabet[str[i]].x;
 
-      next = str[i];
+      if (upDown < 0) {
+        // if difference in y is pos its d
+        result += addLetters('d', upDown);
+      } else if (upDown > 0) {
+        // if difference in y is neg its u
+        result += addLetters('u', upDown);
+      }
 
-      console.log(alphabet[start]);
-      console.log(alphabet[next]);
+      if (leftRight < 0) {
+        // if difference in x is pos its r
+        result += addLetters('r', leftRight);
+      } else if (leftRight > 0) {
+        // if difference in x is pos its r
+        result += addLetters('l', leftRight);
+      }
+
+      result += '!';
+
+      start = str[i];
     }
 
-  // iterating over the string and compare values
-    // if difference in x is pos its r
-    // if difference in x is neg its l
-    // if difference in y is pos its d
-    // if difference in y is neg its u
-    // include a ! 
-
+    return result;
 };
 
-letterGrid('up');
+const addLetters = (letter, length) => {
+  let str = '';
+  length = Math.abs(length);
+
+  for (let i = 0; i < length; i++) {
+    str += letter;
+  }
+  return str;
+
+} 
+
+console.log(letterGrid('up')); // 'dddd!u!'
+console.log(letterGrid('bs')); // 'r!rrddd!'
