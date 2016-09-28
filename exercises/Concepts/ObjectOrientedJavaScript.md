@@ -37,7 +37,7 @@
   - In classical inheritance, properties and methods of a class are copied to object instantiated of that class. Subclasses inherit the properties and methods of a parent class and copy them to their instantiated objects.
   - In JavaScript it make more sense to say  "behavior delegation" rather than "prototypal inheritance".
 
-OLOO: Object Linked to Other Objects
+### OLOO: Object Linked to Other Objects
   - Objects that just delegate to each other 
   ``` 
   var Foo = {
