@@ -15,7 +15,7 @@ const Func = function() {
   }
 
   obj.method2 = function() {
-    console.log(this.method1());
+    console.log(obj.method1());
   }
 
   return obj;
