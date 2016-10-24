@@ -66,7 +66,7 @@ function TicTacToe () {
   }
 
   const checkDiagonalRight = () => {
-    if (board[0][2] === board[1][1] && board[0][0] === board[0][2]) {
+    if (board[0][2] === board[1][1] && board[0][2] === board[2][0]) {
       return board[0][2];
     }
     return null;
@@ -87,7 +87,7 @@ function TicTacToe () {
     return checkVertical() || checkHorizontal() || checkDiagonalLeft() || checkDiagonalRight() || checkDraw();
   }
 
-  return { initBoard, play }
+  return { initBoard, play };
 };
 
 const game = TicTacToe();
