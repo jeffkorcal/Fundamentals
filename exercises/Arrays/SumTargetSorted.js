@@ -3,7 +3,7 @@
 
 var arr = [1,2,3,4,5,6];
 
-function findSumTarget (arr, target) {
+function sumTarget (arr, target) {
   result=[];
   start=0;
   end=arr.length-1;
@@ -25,6 +25,6 @@ function findSumTarget (arr, target) {
   
   return result;
 }
-console.log(findSumTarget(arr, 8));
+console.log(sumTarget(arr, 8));
 
 // Give a sorted array find all combination of three number that add up to target
