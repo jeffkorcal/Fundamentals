@@ -125,6 +125,90 @@ console.log(checkAll(matrix));
 
 
 
+//Ryan Solution
 
+function isSudokuValid(board) {
+  return areColsValid(board) &&
+         areRowsValid(board) &&
+         areSquaresValid(board);
+}
+
+function areColsValid(board) {
+  for (var col = 0; col < board.length; col++) {
+    var set = new Set();
+    
+    for (var row = 0; row < board[0].length; row++) {
+      set.insert(board[row][col]);
+    }
+    
+    if (set.hasDuplicates()) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+function areRowsValid(board) {
+  for (var row = 0; row < board.length; row++) {
+    var set = new Set();
+    
+    for (var col = 0; col < board[0].length; col++) {
+      set.insert(board[row][col]);
+    }
+    
+    if (set.hasDuplicates()) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+function areSquaresValid(board) {
+  var SQUARE_SIZE = 3;
+  
+  for (var row = 0; row < board.length; row += SQUARE_SIZE) {
+    for (var col = 0; col < board[0].length; col += SQUARE_SIZE) {
+      if (!isSquareWithCoordValid(board, row, col)) {
+        return false;
+      }
+    }
+  }
+  
+  return true;
+}
+
+function isSquareWithCoordValid(board, row, col) {
+  var SQUARE_SIZE = 3;
+  var set = new Set();
+  
+  for (var r = row; r < row + SQUARE_SIZE; r++) {
+    for (var c = col; c < col + SQUARE_SIZE; c++) {
+      set.insert(board[r][c]);
+    }
+  }
+  
+  return !set.hasDuplicates();
+}
+
+
+function Set() {
+  this.members = {};
+  this.hasDuplicates = false;
+}
+
+Set.prototype.insert = function(value) {
+  if (value !== null) {
+    if (this.members[value]) {
+      this.hasDuplicates = true;
+    }
+    this.members[value] = true;
+  }
+};
+
+Set.prototype.hasDuplicates = function(value) {
+  return this.hasDuplicates;
+};
 
     
