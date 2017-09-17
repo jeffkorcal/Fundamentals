@@ -53,7 +53,10 @@ Output: [84, 12, 28, 21]
 
 // }
 
-// Optimized O(n)
+
+/*/////////////////////////////////////////////////////
+  Optimized O(n)
+/////////////////////////////////////////////////////*/
 function getProductsOfAllIntsExceptAtIndex(intArr) {
 
   var productsOfAllIntsExceptAtIndex = [];
@@ -62,7 +65,7 @@ function getProductsOfAllIntsExceptAtIndex(intArr) {
 
   for (var i = 0; i < intArr.length; i++) {
     productsOfAllIntsExceptAtIndex.push(productBefore);
-    productBefore = productBefore * intArr[i];
+    productBefore *= intArr[i];
   }
 
   for (var j = intArr.length - 1; j >= 0; j--) {

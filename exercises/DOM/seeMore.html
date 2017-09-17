@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>See More</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+  <style>
+    body {
+      background-color: #01579b;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .wrapper {
+      width: 350px;
+    }
+    .container {
+      background-color: #fff;
+      padding: 5px 10px;
+      margin: 10px;
+    }
+    .hide {
+      display: none;
+    }
+    .reveal {
+      display: inline;
+    }
+    .anchor {
+      font-size: 12px;
+      text-decoration: none;
+      color: #01579b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="container">
+      <p class="collapsible">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati porro, omnis iure at ipsa, officiis asperiores incidunt nesciunt maiores ducimus nam amet odit dolorem dolorum exercitationem, quas? Aspernatur vitae, architecto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus sint perspiciatis voluptates velit error non magni, ad! Sed nemo, id porro blanditiis labore. Adipisci accusantium, reiciendis quibusdam voluptates omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, quidem libero, voluptatem laborum quaerat hic, omnis minima aspernatur sequi laboriosam earum harum veritatis architecto et ratione animi, mollitia quasi dolor? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam assumenda, quo explicabo odit doloribus praesentium earum quasi eveniet fugiat natus a perferendis esse. Quibusdam, quas dolores ex rem iusto voluptate.
+      </p>
+    </div>
+
+    <div class="container">
+      <p class="collapsible">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum natus sed at suscipit esse, tenetur neque. Maiores earum voluptates pariatur impedit eaque cupiditate accusantium at. Aliquid provident inventore velit eius.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus sint perspiciatis voluptates velit error non magni, ad! Sed nemo, id porro blanditiis labore. Adipisci accusantium, reiciendis quibusdam voluptates omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet fuga recusandae ut expedita, eius rerum iusto obcaecati qui maxime consectetur? Ratione suscipit, quos molestiae at accusamus maiores distinctio cum tempora. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit molestiae officia natus ea facilis, commodi quidem modi autem. Ea nemo animi accusamus temporibus, facilis pariatur velit hic culpa ducimus! Sint.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+      // Collapse
+      function initCollapse() {
+        const TEXT_LIMIT_ON_COLLAPSE = 200;
+        const elems = document.getElementsByClassName('collapsible');
+
+        // for...of loop can be used like for loops on nodes
+        for (let elem of elems) {
+          
+          // Grab inner
+          const text = elem.innerText;
+
+          // Shorten inner text
+          elem.innerText = text.slice(0, TEXT_LIMIT_ON_COLLAPSE);
+    
+          // Add hidden text
+          const hiddenText = text.slice(TEXT_LIMIT_ON_COLLAPSE);
+          const hiddenSpan = document.createElement('span');
+          hiddenSpan.innerText = hiddenText;
+          hiddenSpan.classList.add('hide');
+          elem.appendChild(hiddenSpan);
+
+          // Add ellipses
+          const ellipsesSpan = document.createElement('span');
+          ellipsesSpan.innerText = '... ';
+          ellipsesSpan.classList.add('reveal');
+          elem.appendChild(ellipsesSpan);
+
+          // Add see more
+          const seeMoreAnchorTag = document.createElement('a');
+          seeMoreAnchorTag.href = '#';
+          seeMoreAnchorTag.innerText = 'See More';
+          seeMoreAnchorTag.classList.add('reveal', 'anchor');
+          seeMoreAnchorTag.addEventListener('click', expandCollapsedText);
+          elem.appendChild(seeMoreAnchorTag);
+
+        }
+      }
+
+      // Expand
+      function expandCollapsedText(e) {
+        e.preventDefault();
+        const textBox = this.parentNode;
+
+        [...textBox.getElementsByClassName('hide')].forEach(elem => {
+          elem.classList.remove('hide');
+        });
+
+        [...textBox.getElementsByClassName('reveal')].forEach(elem => {
+          elem.classList.remove('reveal');
+          elem.classList.add('hide');
+        });
+
+      }
+
+      initCollapse();
+    });
+  </script>
+</body>
+</html>

@@ -26,7 +26,10 @@ Write an efficient function that takes stockPricesYesterday and returns the best
 //   return maxProfit;
 // }
 
-// Optimized
+
+/*/////////////////////////////////////////////////////
+  Optimized O(n)
+/////////////////////////////////////////////////////*/
 function getMaxProfit(stockPricesYesterday) {
 
   if (stockPricesYesterday.length < 2) {

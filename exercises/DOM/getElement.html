@@ -43,7 +43,7 @@
         if (node.nodeName === tagName) tagsFound.push(node);
 
         for (let i = 0; i < node.children.length; i++) {
-          tagsFound = tagsFound.concat(byTagName(tagName,node.children[i],tagsFound));
+          tagsFound = tagsFound.concat(byTagName(tagName,node.children[i]));
         }
 
         return tagsFound;

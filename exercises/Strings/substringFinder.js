@@ -1,6 +1,5 @@
 // How can you match substring of a sting?
 
-
 const subStringFinder = (str, subStr) => {
   var count = 0,
       i = 0,
