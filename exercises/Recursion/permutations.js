@@ -3,9 +3,8 @@
 function permutations(string) {
   var result = [];
 
-  (function recurse (combo, visited) {
-
-    if(combo.length === string.length) {
+  (function recurse(combo, visited) {
+    if (combo.length === string.length) {
       if (!result.includes(combo)) {
         result.push(combo);
       }
@@ -13,15 +12,13 @@ function permutations(string) {
     }
 
     for (var i = 0; i < string.length; i++) {
-      if(!visited.includes(i)) {
+      if (!visited.includes(i)) {
         recurse(combo.concat(string[i]), visited.concat(i));
       }
     }
-
   })('', []);
 
   return result;
-
 }
 
 // console.log(permutations('a')); // ['a']

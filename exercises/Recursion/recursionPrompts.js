@@ -1,5 +1,5 @@
 // 1. Calculate the factorial of a number.  The factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n.
-  let factorial = function(n) {
+  const factorial = function(n) {
     if (n===0) {
       return 1;
     } else if (n<0){
@@ -12,18 +12,18 @@
 
 
 // 2. Compute the sum of an array of integers.
-  let sum = function(array) {
+  const sum = function(array) {
 
     if (array.length === 1) return array.pop();
 
-    return array.pop() + sum2(array);
+    return array.pop() + sum(array);
 
   };
   // console.log(sum([1, 2, 3, 4, 5, 6]));  // 21
 
 
 // 3. Sum all numbers in an array containing nested arrays.
-  let arraySum = function(array) {
+  const arraySum = function(array) {
 
     return array.reduce(function(prev, curr){
       if(Array.isArray(curr)){
@@ -38,7 +38,7 @@
 
 
 // 4. Check whether a number is even or not.
-  let isEven = function(n) {
+  const isEven = function(n) {
 
     if(n === 0) return true;
     if(n === 1) return false;
@@ -53,20 +53,20 @@
 
 
 // 5. Get the integers in range (x, y).
-  let range = function(min, max) {
+  const range = function(min, max) {
 
-    let result = [];
+    const result = [];
 
     if (min === max) return result;
 
     if (min < max-1){
       result.push(min+1);
-      return result.concat(range(min+1,max,result));  
+      return result.concat(range(min+1,max));
     }
 
     if (max < min-1) {
       result.push(min-1);
-      return result.concat(range(min-1,max,result));   
+      return result.concat(range(min-1,max));
     }
 
     //needs to return empty array b/c it is going to get called one more time
@@ -78,8 +78,8 @@
   // console.log(range(9, 2)); // [ 8, 7, 6, 5, 4, 3 ]
 
 
-// 6. Compute the exponent of a number. The exponent of  a number says how many times the base number is used as a factor.
-  let exponent = function(base, exp) {
+// 6. Compute the exponent of a number. The exponent of a number says how many times the base number is used as a factor.
+  const exponent = function(base, exp) {
     
     if (exp===0) return 1;
     if (exp < 0) return exponent(base, exp+1)/base; 
@@ -92,7 +92,7 @@
 
 
 // 7. Write a function that accepts a string a reverses it.
-  let reverse = function(str) {
+  const reverse = function(str) {
 
     if (str.length === 1) return str.charAt(0);
 
@@ -103,7 +103,7 @@
 
 
 // 8. Write a function that determines if a string is a palindrome.
-  let palindrome = function(str) {
+  const palindrome = function(str) {
 
     str = str.replace(/[\s]/g, "").toLowerCase();
 
@@ -119,7 +119,7 @@
 
 
 // 9. Write a function that returns the remainder of x divided by y without using the modulo (%) operator.
-  let modulo = function(x, y) {
+  const modulo = function(x, y) {
     if (x === 0 && y === 0) return NaN;
     if (x < 0 && y < 0) return x;
     
@@ -138,7 +138,7 @@
 
 
 // 10. Write a function that multiplies two numbers without using the * operator  or JavaScript's Math object.
-  let multiply = function(x, y) {
+  const multiply = function(x, y) {
     if (x === 0) return 0;
     if (x<0 && y<0) return multiply(-x,-y); 
     
@@ -170,7 +170,7 @@
 
 
 // 12. Find the greatest common divisor (gcd) of two positive numbers.  The GCD of two integers is the greatest integer that divides both x and y with no remainder.
-  let gcd = function(x, y, divisor) {
+  const gcd = function(x, y, divisor) {
     divisor = divisor || (x < y ? x : y);
   
     if (x%divisor === 0 && y%divisor === 0) return divisor;
@@ -184,9 +184,9 @@
 
 
 // 13. Write a function that compares each character of two strings and returns true if both are identical.
-  let compareStr = function(str1, str2) {
+  const compareStr = function(str1, str2) {
     if (str1.length !== str2.length) return false;
-    if (str1.length === 0) return true;
+    if (str1.length === 0 && str2.length === 0) return true;
 
     if (str1.charAt(0) === str2.charAt(0)) {
       return compareStr(str1.slice(1),str2.slice(1));
@@ -202,7 +202,7 @@
 
 
 // 14. Write a function that accepts a string and creates an array where each letter occupies an index of the array.
-  let createArray = function(str){
+  const createArray = function(str){
 
     let arr = [str.charAt(0)];
 
@@ -215,7 +215,7 @@
 
 
 // 15. Reverse the order of an array
-  let reverseArr = function (arr) {
+  const reverseArr = function (arr) {
 
     let revArr = [arr.pop()];
 
@@ -228,7 +228,7 @@
 
 
 // 16. Create a new array with a given value and length.
-  let buildList = function(value, length) {
+  const buildList = function(value, length) {
     let arr = [value];
 
     if (length === 1) return arr;
@@ -241,7 +241,7 @@
 
 
 // 17. Count the occurence of a value inside a list.
-  let countOccurrence = function(array, value) {
+  const countOccurrence = function(array, value) {
 
     let counter = 0;
 
@@ -257,7 +257,7 @@
 
 
 // 18. Write a function that counts the number of times a key occurs in an object.
-  let countKeysInObj = function(obj, value) {
+  const countKeysInObj = function(obj, value) {
 
     let counter = 0;
 
@@ -278,14 +278,14 @@
 
 
 // 19. Write a function that counts the number of times a value occurs in an object.
-  let countValuesInObj = function(obj, value) {
+  const countValuesInObj = function(obj, value) {
 
     let counter = 0;
 
     for (let key in obj) {
       if(obj[key] === value) counter++;
       
-      if(typeof obj[key] === 'object') {
+      if(typeof obj[key] === 'object' && obj[key] !== null) {
         counter += countValuesInObj(obj[key],value);
       } 
     }
@@ -299,7 +299,7 @@
 
 
 // 20. Find all keys in an object (and nested objects) by a provided name and rename them to a provided new name while preserving the value stored at that key.
-  let replaceKeysInObj = function(obj, value, newKey) {
+  const replaceKeysInObj = function(obj, value, newKey) {
 
     for (let key in obj) {
       if (key===value) {
@@ -307,7 +307,7 @@
         delete obj[key]; 
       } 
       
-      if (typeof obj[key] === "object"){
+      if (typeof obj[key] === "object" && obj[key] !== null) {
         replaceKeysInObj(obj[key],value,newKey);
       }
 
@@ -316,11 +316,11 @@
     return obj;
 
   };
-  // let testobj = {'e': {'x':'y'}, 't':{'r': {'e':'r'}, 'p': {'y':'r'}},'y':'e'};
+  // let testobj = {'e': {'x':'y'}, 't':{'r': {'e':'r'}, 'p': {'r':'r'}},'r':'e'};
   // console.log(replaceKeysInObj(testobj, 'r', 'newkey'));
 
 
-// 21. Get the first n Fibonacci numbers.  In the Fibonacci Sequence, each subsequent number is the sum of the previous two. Note:  The 0 is not counted.
+// 21. Get the first n Fibonacci numbers. In the Fibonacci Sequence, each subsequent number is the sum of the previous two. Note:  The 0 is not counted.
   // let fibonacci = function(n) {
   // };
   // console.log(fibonacci(5));  // [0, 1, 1, 2, 3, 5]
