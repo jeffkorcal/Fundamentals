@@ -12,7 +12,6 @@ return [0, 1].
 
 // output: indexs
 
-
 const sumTarget = (nums, target) => {
 
   for (let i = 0; i < nums.length; i++) {
@@ -28,7 +27,7 @@ const sumTarget = (nums, target) => {
 };
 
 // optimized
-const sumTarget = (nums, target) => {
+const sumTargetTwo = (nums, target) => {
   const diff = {};
 
   for (let i = 0; i < nums.length; i++) {
@@ -46,4 +45,4 @@ const sumTarget = (nums, target) => {
 
 
 console.log(sumTarget([2, 7, 11, 15], 9));
-console.log(sumTarget([3, 2, 4], 6));
+console.log(sumTargetTwo([3, 2, 4], 6));

@@ -4,9 +4,9 @@
 var arr = [1,2,3,4,5,6];
 
 function sumTarget (arr, target) {
-  result=[];
-  start=0;
-  end=arr.length-1;
+  let result=[];
+  let start=0;
+  let end=arr.length-1;
 
   while(start < end) {
     var sum = arr[start] + arr[end];

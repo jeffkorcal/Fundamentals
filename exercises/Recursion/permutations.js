@@ -5,9 +5,7 @@ function permutations(string) {
 
   (function recurse(combo, visited) {
     if (combo.length === string.length) {
-      if (!result.includes(combo)) {
-        result.push(combo);
-      }
+      result.push(combo);
       return;
     }
 
