@@ -1,9 +1,9 @@
 {
-  "name": "toyproblems",
+  "name": "fundamentals",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {},
-  "author": "",
-  "license": "ISC"
+  "author": "Jeff Korcal",
+  "license": "MIT"
 }
