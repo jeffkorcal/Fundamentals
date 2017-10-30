@@ -1,3 +1,5 @@
+# Basic Commands
+
 | CMD      | Description                            |
 |-         |-                                       |
 | pwd      | print working directory                |

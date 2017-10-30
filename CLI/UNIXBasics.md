@@ -1,4 +1,4 @@
-# UNIX Commands
+# UNIX Basics
 ```
 Command + Option + Argument
 ```
