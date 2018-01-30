@@ -122,7 +122,8 @@
 - `/$/`	End of input
 
 
-### Tools
+### Tools & Resources
 - https://www.regexpal.com/
 - https://regexr.com/
 - https://www.debuggex.com/
+- https://regular-expressions.info
